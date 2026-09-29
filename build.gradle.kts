@@ -18,6 +18,10 @@ dependencies {
 
     // Source: https://mvnrepository.com/artifact/net.minestom/minestom
     implementation("net.minestom:minestom:2026.08.16-26.2")
+    // MinestomPVP
+    implementation("io.github.togar2:MinestomPvP:2026.05.30-26.1.1")
+    // JNoise Library
+    implementation("de.articdive:jnoise-pipeline:4.1.0")
 }
 
 tasks.test {

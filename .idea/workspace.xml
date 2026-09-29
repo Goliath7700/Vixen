@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dccc695-f985-4554-bb91-4a6c88727bf5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/events/BlockBreakListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/events/PlayerListener.java" afterDir="false" />
+    <list default="true" id="9dccc695-f985-4554-bb91-4a6c88727bf5" name="Changes" comment="server setup,&#10;flat world gen,&#10;lighting,&#10;block breaking,&#10;item pickup">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/commands/DisguiseCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/commands/ShutdownCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/events/BlockBreakListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/events/BlockListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/events/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/events/PlayerListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +33,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Goliath7700&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Goliath7700/Vixen.git&quot;,
+    &quot;accountId&quot;: &quot;de814bac-fe78-4c58-90fd-488237ed3391&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3,
   &quot;fromUser&quot;: false
@@ -48,22 +53,24 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build Vixen.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Vixen [:io.github.goliath7700.Main.main()].executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Dev/Minecraft/Minestom/Vixen/src/main/java/org/example/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build Vixen.executor": "Run",
+    "Gradle.Vixen [:io.github.goliath7700.Main.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Dev/Minecraft/Minestom/Vixen",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Dev/Minecraft/Minestom/Vixen/src/main/java/org/example/Main.java",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="io.github.goliath7700.Main" />
@@ -90,10 +97,23 @@
       <option name="presentableId" value="Default" />
       <updated>1787793596348</updated>
     </task>
+    <task id="LOCAL-00001" summary="server setup,&#10;flat world gen,&#10;lighting,&#10;block breaking,&#10;item pickup">
+      <option name="closed" value="true" />
+      <created>1787807071262</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1787807071262</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="server setup,&#10;flat world gen,&#10;lighting,&#10;block breaking,&#10;item pickup" />
+    <option name="LAST_COMMIT_MESSAGE" value="server setup,&#10;flat world gen,&#10;lighting,&#10;block breaking,&#10;item pickup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

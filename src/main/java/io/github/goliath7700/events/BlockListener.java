@@ -1,6 +1,5 @@
 package io.github.goliath7700.events;
 
-import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Vec;
 import net.minestom.server.entity.ItemEntity;
 import net.minestom.server.event.player.PlayerBlockBreakEvent;
@@ -9,7 +8,7 @@ import net.minestom.server.item.Material;
 
 import java.time.Duration;
 
-public class BlockBreakListener {
+public class BlockListener {
 
     public static void onBlockBreak(PlayerBlockBreakEvent event) {
         var block = event.getBlock();
@@ -19,7 +18,7 @@ public class BlockBreakListener {
         Material material = block.material();
         if (material == null) return;
 
-        ItemStack dropStack = ItemStack.of(material, 1);
+        ItemStack dropStack = ItemStack.of(material, 16);
 
         ItemEntity itemEntity = new ItemEntity(dropStack);
 
