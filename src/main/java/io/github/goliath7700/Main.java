@@ -11,12 +11,18 @@ import de.articdive.jnoise.modules.combination.CombinationModule;
 import de.articdive.jnoise.modules.octavation.fractal_functions.FractalFunction;
 import de.articdive.jnoise.pipeline.JNoise;
 import io.github.goliath7700.commands.DisguiseCommand;
+import io.github.goliath7700.commands.FlightCommand;
 import io.github.goliath7700.commands.ShutdownCommand;
 import io.github.goliath7700.events.BlockListener;
 import io.github.goliath7700.events.PlayerListener;
+import io.github.goliath7700.worldgen.WorldGenerator;
 import io.github.togar2.pvp.MinestomPvP;
+import io.github.togar2.pvp.feature.CombatFeature;
 import io.github.togar2.pvp.feature.CombatFeatureSet;
 import io.github.togar2.pvp.feature.CombatFeatures;
+import io.github.togar2.pvp.feature.FeatureType;
+import io.github.togar2.pvp.feature.provider.DifficultyProvider;
+import io.github.togar2.pvp.utils.CombatVersion;
 import net.minestom.server.Auth;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.command.CommandManager;
@@ -39,6 +45,9 @@ import net.minestom.server.timer.SchedulerManager;
 import net.minestom.server.world.DimensionType;
 
 import java.nio.file.Path;
+import java.util.List;
+
+import static io.github.goliath7700.worldgen.WorldGenerator.WorldGenerate;
 
 public class Main {
     void main() {
@@ -68,37 +77,7 @@ public class Main {
 //        });
 
         // NEW World Gen
-
-        // Noise used for the height
-        JNoise simplexNoise2 = JNoise.newBuilder()
-                .fastSimplex(FastSimplexNoiseGenerator.newBuilder().setSeed(100).build())
-                .scale(0.01)
-                .build();
-        JNoise simplexNoise = JNoise.newBuilder()
-                .fastSimplex(FastSimplexNoiseGenerator.newBuilder().build())
-                .scale(0.005)
-                .build();
-        JNoise noise = JNoise.newBuilder()
-                .combination(CombinationModule.newBuilder().setA(simplexNoise).setB(simplexNoise2).setCombiner(Combiner.ADD))// Low frequency for smooth terrain
-                .build();
-
-        // Set the Generator
-        instanceContainer.setGenerator(unit -> {
-            Point start = unit.absoluteStart();
-            for (int x = 0; x < unit.size().x(); x++) {
-                for (int z = 0; z < unit.size().z(); z++) {
-                    Point bottom = start.add(x, 0, z);
-
-                    synchronized (noise) { // Synchronization is necessary for JNoise
-                        double height = noise.evaluateNoise(bottom.x(), bottom.z()) * 16;
-                        // * 16 means the height will be between -16 and +16
-                        unit.modifier().fill(bottom, bottom.add(1, 0, 1).withY(height), Block.OAK_PLANKS);
-//                        unit.modifier().setBlock(bottom.add(0, 1, 0).withY(height), Block.TORCH);
-                    }
-                }
-            }
-        });
-
+        WorldGenerate(instanceContainer);
 
         // Lighting
         instanceContainer.setChunkSupplier(LightingChunk::new);
@@ -121,12 +100,16 @@ public class Main {
         CommandManager commandManager = MinecraftServer.getCommandManager();
         commandManager.register(new DisguiseCommand());
         commandManager.register(new ShutdownCommand());
+        commandManager.register(new FlightCommand());
 
         // PVP
         MinestomPvP.init();
 
-        CombatFeatureSet modernVanilla = CombatFeatures.legacyVanilla();
-        MinecraftServer.getGlobalEventHandler().addChild(modernVanilla.createNode());
+        CombatFeatureSet legacyVanilla = CombatFeatures.getVanilla(CombatVersion.LEGACY, DifficultyProvider.DEFAULT)
+                .remove(CombatFeatures.VANILLA_FALL.featureType())
+                .remove(CombatFeatures.VANILLA_EXHAUSTION.featureType())
+                .build();
+        MinecraftServer.getGlobalEventHandler().addChild(legacyVanilla.createNode());
         // Start
 
         server.start("0.0.0.0",25565);
