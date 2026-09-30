@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dccc695-f985-4554-bb91-4a6c88727bf5" name="Changes" comment="World Gen">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/commands/DisguiseCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/commands/FlightCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/commands/ShutdownCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/worldgen/WorldGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/events/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/goliath7700/events/PlayerListener.java" afterDir="false" />
-    </list>
+    <list default="true" id="9dccc695-f985-4554-bb91-4a6c88727bf5" name="Changes" comment="Disguise Command" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +105,55 @@
       <option name="project" value="LOCAL" />
       <updated>1790723875636</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Flight Command,&#10;World Generation gets its own class and has oceans">
+      <option name="closed" value="true" />
+      <created>1790740851691</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1790740851692</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Earth Bending incomplete">
+      <option name="closed" value="true" />
+      <created>1790740924881</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1790740924881</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Earth Bending incomplete">
+      <option name="closed" value="true" />
+      <created>1790740952240</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1790740952240</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ShutdownCommand">
+      <option name="closed" value="true" />
+      <created>1790740966111</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1790740966111</updated>
+    </task>
+    <task id="LOCAL-00007" summary="workspace changes">
+      <option name="closed" value="true" />
+      <created>1790740994184</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1790740994184</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Disguise Command">
+      <option name="closed" value="true" />
+      <created>1790741007450</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1790741007450</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +162,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="server setup,&#10;flat world gen,&#10;lighting,&#10;block breaking,&#10;item pickup" />
     <MESSAGE value="World Gen" />
-    <option name="LAST_COMMIT_MESSAGE" value="World Gen" />
+    <MESSAGE value="Flight Command,&#10;World Generation gets its own class and has oceans" />
+    <MESSAGE value="Earth Bending incomplete" />
+    <MESSAGE value="ShutdownCommand" />
+    <MESSAGE value="workspace changes" />
+    <MESSAGE value="Disguise Command" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disguise Command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
