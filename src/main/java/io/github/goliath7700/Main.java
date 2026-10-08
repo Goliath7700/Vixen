@@ -42,6 +42,7 @@ import net.minestom.server.instance.LightingChunk;
 import net.minestom.server.instance.anvil.AnvilLoader;
 import net.minestom.server.instance.block.Block;
 import net.minestom.server.timer.SchedulerManager;
+import net.minestom.server.timer.TaskSchedule;
 import net.minestom.server.world.DimensionType;
 
 import java.nio.file.Path;
@@ -114,5 +115,13 @@ public class Main {
         // Start
 
         server.start("0.0.0.0",25565);
+
+        MinecraftServer.getSchedulerManager().buildTask(() -> {
+            // memory logging
+            Runtime rt = Runtime.getRuntime();
+            long used = (rt.totalMemory() - rt.freeMemory()) / 1024 / 1024;
+            long max = rt.maxMemory() / 1024 / 1024;
+            System.out.printf("[Memory] %d MB used / %d MB max%n", used, max);
+        }).repeat(TaskSchedule.seconds(5)).schedule();
     }
 }
