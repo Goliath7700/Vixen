@@ -88,7 +88,7 @@ public class Main {
         globalEventHandler.addListener(AsyncPlayerConfigurationEvent.class, event -> {
             final Player player = event.getPlayer();
             event.setSpawningInstance(instanceContainer);
-            player.setRespawnPoint(new Pos(0, 0, 0));
+            player.setRespawnPoint(new Pos(0, 120, 0));
         });
 
         // Events
