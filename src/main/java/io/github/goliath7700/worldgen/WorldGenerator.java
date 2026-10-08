@@ -5,17 +5,22 @@ import de.articdive.jnoise.pipeline.JNoise;
 import net.minestom.server.coordinate.Point;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.block.Block;
+import org.apache.commons.math3.analysis.interpolation.HermiteInterpolator;
 
 public class WorldGenerator {
     // Noise used for the height
     // RN I have two noise maps that are combined
     static final JNoise noise1 = JNoise.newBuilder()
             .fastSimplex(FastSimplexNoiseGenerator.newBuilder().setSeed(100).build())
-            .scale(0.01)
+            .scale(0.005)
             .build();
     static final JNoise noise2 = JNoise.newBuilder()
             .fastSimplex(FastSimplexNoiseGenerator.newBuilder().build())
             .scale(0.001)
+            .build();
+    static final JNoise continentalnessNoise = JNoise.newBuilder()
+            .fastSimplex(FastSimplexNoiseGenerator.newBuilder().build())
+            .scale(0.0005)
             .build();
 
     public static void WorldGenerate(InstanceContainer instanceContainer) {
