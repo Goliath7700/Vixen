@@ -1,32 +1,18 @@
 package io.github.goliath7700;
 
-import de.articdive.jnoise.core.api.functions.Combiner;
-import de.articdive.jnoise.core.api.functions.Interpolation;
-import de.articdive.jnoise.core.api.modifiers.NoiseModifier;
-import de.articdive.jnoise.generators.noise_parameters.fade_functions.FadeFunction;
-import de.articdive.jnoise.generators.noisegen.opensimplex.FastSimplexNoiseGenerator;
-import de.articdive.jnoise.generators.noisegen.opensimplex.SuperSimplexNoiseGenerator;
-import de.articdive.jnoise.generators.noisegen.random.white.WhiteNoiseGenerator;
-import de.articdive.jnoise.modules.combination.CombinationModule;
-import de.articdive.jnoise.modules.octavation.fractal_functions.FractalFunction;
-import de.articdive.jnoise.pipeline.JNoise;
 import io.github.goliath7700.commands.DisguiseCommand;
 import io.github.goliath7700.commands.FlightCommand;
 import io.github.goliath7700.commands.ShutdownCommand;
 import io.github.goliath7700.events.BlockListener;
 import io.github.goliath7700.events.PlayerListener;
-import io.github.goliath7700.worldgen.WorldGenerator;
 import io.github.togar2.pvp.MinestomPvP;
-import io.github.togar2.pvp.feature.CombatFeature;
 import io.github.togar2.pvp.feature.CombatFeatureSet;
 import io.github.togar2.pvp.feature.CombatFeatures;
-import io.github.togar2.pvp.feature.FeatureType;
 import io.github.togar2.pvp.feature.provider.DifficultyProvider;
 import io.github.togar2.pvp.utils.CombatVersion;
 import net.minestom.server.Auth;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.command.CommandManager;
-import net.minestom.server.coordinate.Point;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.GlobalEventHandler;
@@ -40,13 +26,11 @@ import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.InstanceManager;
 import net.minestom.server.instance.LightingChunk;
 import net.minestom.server.instance.anvil.AnvilLoader;
-import net.minestom.server.instance.block.Block;
 import net.minestom.server.timer.SchedulerManager;
 import net.minestom.server.timer.TaskSchedule;
 import net.minestom.server.world.DimensionType;
 
 import java.nio.file.Path;
-import java.util.List;
 
 import static io.github.goliath7700.worldgen.WorldGenerator.WorldGenerate;
 
