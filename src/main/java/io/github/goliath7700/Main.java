@@ -95,6 +95,7 @@ public class Main {
         globalEventHandler.addListener(PickupItemEvent.class, PlayerListener::onPlayerPickUp);
         globalEventHandler.addListener(PlayerBlockInteractEvent.class, PlayerListener::onPlayerBlockInteract);
         globalEventHandler.addListener(EntityAttackEvent.class, PlayerListener::onPlayerFallingBlockHit);
+        globalEventHandler.addListener(PlayerEntityInteractEvent.class, PlayerListener::onPlayerFallingBlockInteract);
 
         // Commands
         CommandManager commandManager = MinecraftServer.getCommandManager();
