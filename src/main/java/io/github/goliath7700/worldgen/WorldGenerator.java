@@ -24,6 +24,9 @@ public class WorldGenerator {
             .build();
 
     public static void WorldGenerate(InstanceContainer instanceContainer) {
+
+        int seaLevel = 74;
+
         // Continentalness Spline
         HermiteInterpolator terrainSpline = new HermiteInterpolator();
         terrainSpline.addSamplePoint(-1.0, new double[] {-40.0}, new double[] {  0.0 });
@@ -77,14 +80,14 @@ public class WorldGenerator {
                     if (y < 50) {
                         return Block.STONE;
                     }
-                    if (y < 65) {
+                    if (y < seaLevel + 5) {
                         return Block.SAND;
                     }
                     return Block.GRASS_BLOCK;
                 }
 
                 // Keep Ocean
-                if (y < 64) {
+                if (y < seaLevel) {
                     return Block.WATER;
                 }
 
