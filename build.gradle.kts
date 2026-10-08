@@ -23,6 +23,7 @@ dependencies {
     implementation("io.github.togar2:MinestomPvP:2026.05.30-26.1.1")
     // JNoise Library
     implementation("de.articdive:jnoise-pipeline:4.1.0")
+    implementation("org.apache.commons:commons-math3:3.6.1")
 }
 
 tasks.test {
