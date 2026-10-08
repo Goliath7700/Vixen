@@ -24,6 +24,14 @@ public class WorldGenerator {
             .build();
 
     public static void WorldGenerate(InstanceContainer instanceContainer) {
+        // Continentalness Spline
+        HermiteInterpolator terrainSpline = new HermiteInterpolator();
+        terrainSpline.addSamplePoint(-1.0, new double[] {-40.0}, new double[] {  0.0 });
+        terrainSpline.addSamplePoint(-0.3, new double[] {  0.0}, new double[] { 30.0 });
+        terrainSpline.addSamplePoint( 0.2, new double[] { 10.0}, new double[] { 10.0 });
+        terrainSpline.addSamplePoint( 0.7, new double[] { 40.0}, new double[] {-50.0 });
+        terrainSpline.addSamplePoint( 1.0, new double[] {120.0}, new double[] {  0.0 });
+
         // Set the Generator
         instanceContainer.setGenerator(unit -> {
             unit.modifier().fillHeight(-64, 0, Block.WATER);
@@ -51,7 +59,12 @@ public class WorldGenerator {
                 for (int z = 0; z < sizeZ; z++) {
                     double worldX = start.x() + x;
                     double worldZ = start.z() + z;
-                    heights[x * sizeZ + z] = ( noise2.evaluateNoise(worldX, worldZ) * 4) * 16;
+
+                    double continentalNoise = continentalnessNoise.evaluateNoise(worldX, worldZ);
+                    double continentalOffset = terrainSpline.value(continentalNoise)[0];
+
+                    heights[x * sizeZ + z] = (noise1.evaluateNoise(worldX, worldZ) * 0.5
+                            + noise2.evaluateNoise(worldX, worldZ) * 4) * 16 + continentalOffset;
                 }
             }
 
